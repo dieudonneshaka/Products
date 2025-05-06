@@ -1,4 +1,4 @@
-namespace TodoApi;
+namespace ProductsApi;
 
 public class WeatherForecast
 {
