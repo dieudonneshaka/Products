@@ -5,9 +5,9 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 
 var builder = WebApplication.CreateBuilder(args);
-var app = builder.Build();
 
-builder.Services.AddDbContext<AppDbContext>(options =>
+
+builder.Services.AddDbContext<ProductDatabase>(options =>
     options.UseInMemoryDatabase("ProductsDb"));
     
 var googleClientId = "your-google-client-id"; // Replace with your actual Google Client ID
@@ -25,6 +25,10 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             ValidateLifetime = true // Varmistaa, että token ei ole vanhentunut
         };
     });
+
+// builder lets build application
+var app = builder.Build();
+
 
 app.UseAuthentication(); // Käynnistää autentikointijärjestelmän
 app.UseAuthorization(); // Tarkistaa, onko käyttäjällä oikeudet

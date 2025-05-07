@@ -9,9 +9,9 @@ namespace ProductsApi.Controllers
     [ApiController]
     public class ProductsController : ControllerBase
     {
-        private readonly AppDbContext _context;
+        private readonly ProductDatabase _context;
 
-        public ProductsController(AppDbContext context)
+        public ProductsController(ProductDatabase context)
         {
             _context = context;
         }

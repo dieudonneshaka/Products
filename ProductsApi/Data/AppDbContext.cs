@@ -3,9 +3,9 @@ using ProductsApi.Models;
 
 namespace ProductsApi.Data
 {
-    public class AppDbContext : DbContext
+    public class ProductDatabase : DbContext
     {
-        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
+        public ProductDatabase(DbContextOptions<ProductDatabase> options) : base(options) { }
         public DbSet<Product> Products { get; set; }
     }
 }
