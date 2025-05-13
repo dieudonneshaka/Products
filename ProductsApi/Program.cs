@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddControllers();
 
 
 builder.Services.AddDbContext<ProductDatabase>(options =>
@@ -28,7 +29,9 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 
 // builder lets build application
 var app = builder.Build();
-
+        var webapi = builder.Build();
+        webapi.MapControllers();
 
 app.UseAuthentication(); // Käynnistää autentikointijärjestelmän
-app.UseAuthorization(); // Tarkistaa, onko käyttäjällä oikeudet
+
+app.Run();
